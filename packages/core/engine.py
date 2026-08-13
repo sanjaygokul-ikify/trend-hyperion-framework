@@ -42,8 +42,12 @@ class Engine:
             agent = self.agents.get(task.agent_id)
             if agent is None:
                 raise InvalidAgentError(f"Agent {task.agent_id} not registered")
-            agent.execute_task(task)
-            self.logger.info(f"Executed task {task_id}")
+            try:
+                agent.execute_task(task)
+                self.logger.info(f"Executed task {task_id}")
+            except Exception as e:
+                self.logger.error(f"Error executing task {task_id}: {e}")
+                raise
 
     def update_registry(self):
         with self.lock:
