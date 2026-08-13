@@ -1,0 +1,5 @@
+# Ignore files and directories
+*.pyc
+*.log
+__pycache__
+.gitignore
