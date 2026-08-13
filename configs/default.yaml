@@ -1,0 +1,7 @@
+# Default configuration for Hyperion Framework
+registry:
+  host: localhost
+  port: 8080
+orchestrator:
+  host: localhost
+  port: 8081
